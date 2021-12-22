@@ -28,3 +28,28 @@ for fileName in os.listdir('Passports'):
 top, right, bottom, left = face_location[0]
 face_image = image[top:bottom, left:right]
 ```
+### Compare passport face
+![](https://i.ibb.co/Y8TTmMm/rotate.png)
+```python
+for fileName in os.listdir('Cropped'):
+    image = face_recognition.load_image_file(os.path.join('Cropped', fileName))
+    face_enc = face_recognition.face_encodings(image)[0]
+
+    match_count = 0
+
+    for fn in os.listdir('Faces'):
+        face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
+        fe = face_recognition.face_encodings(face_image)[0]
+
+        matches = face_recognition.compare_faces([face_enc], fe, face_match_tol)
+
+        if True in matches:
+            print(fileName + ' matched with ' + fn)
+            match_count += 1
+
+    if match_count == 0:
+        raise Exception('No matches found.')
+
+    if match_count > 1:
+        raise Exception('Multiple matches found.')
+```
