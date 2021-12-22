@@ -1,5 +1,5 @@
 # Passport Immigration Automation
-This software has been used for automate the passport immigration process. Python programming language has been used in this software. This software first rotate the passport image into correct direction, crop ROI and then extract face from passport and then compare faces with passport file.
+This software has been used for automate the passport immigration process. Python programming language has been used in this software. This software first rotate the passport image into correct direction then enhance the image for better quality, crop ROI and then extract face from passport and save it into folder and then compare saved faces with passport faces file.
 
 ## Features
 ### Rotate the passport file into correct direction
