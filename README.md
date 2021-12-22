@@ -25,8 +25,13 @@ for fileName in os.listdir('Passports'):
 ### Extract face from passport
 ![](https://i.ibb.co/QPgkj0t/rotate.png)
 ```python
-top, right, bottom, left = face_location[0]
-face_image = image[top:bottom, left:right]
+for fileName in os.listdir('Passports'):
+    image = face_recognition.load_image_file(os.path.join('Passports', fileName))
+
+    face_location = face_recognition.face_locations(image)
+
+    top, right, bottom, left = face_location[0]
+    face_image = image[top:bottom, left:right]
 ```
 ### Compare passport face
 ![](https://i.ibb.co/Y8TTmMm/rotate.png)
