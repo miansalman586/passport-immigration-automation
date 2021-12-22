@@ -5,27 +5,25 @@ This software has been used for automate the passport immigration process. Pytho
 ### Rotate The Passport File Into Correct Direction
 ![](https://i.ibb.co/9qyFZPb/rotate.png)
 ```python
-for fileName in os.listdir('Passports'):
-    image = face_recognition.load_image_file(os.path.join('Passports', fileName))
+image = face_recognition.load_image_file(os.path.join('Passports', 'Passport-001.jpg'))
 
-    while True:
-        face_location = face_recognition.face_locations(image)
-
-        if len(face_location) == 0:
-            image = numpy.asarray(Image.fromarray(image).rotate(90, expand=True))
-        else:
-            break
+while True:
+    face_location = face_recognition.face_locations(image)
+    
+    if len(face_location) == 0:
+        image = numpy.asarray(Image.fromarray(image).rotate(90, expand=True))
+    else:
+        break
 ```
 ### Crop ROI
 ![](https://i.ibb.co/Qcmj1p8/rotate.png)
 ```python
-for fileName in os.listdir('Passports'):
-    image = face_recognition.load_image_file(os.path.join('Passports', fileName))
-    
-    image = numpy.asarray(Image.fromarray(image).resize((962, 1343)))
-    w, h, r = image.shape
-    h = h // 2
-    image = image[h + 150:, :w]
+image = face_recognition.load_image_file(os.path.join('Passports', 'Passport-001.jpg'))
+
+image = numpy.asarray(Image.fromarray(image).resize((962, 1343)))
+w, h, r = image.shape
+h = h // 2
+image = image[h + 150:, :w]
 ```
 ### Enhance Image
 ![](https://i.ibb.co/BgM0k7c/1.png)
