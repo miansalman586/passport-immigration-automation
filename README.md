@@ -19,10 +19,13 @@ for fileName in os.listdir('Passports'):
 ### Crop ROI
 ![](https://i.ibb.co/Qcmj1p8/rotate.png)
 ```python
- image = numpy.asarray(Image.fromarray(image).resize((962, 1343)))
- w, h, r = image.shape
- h = h // 2
- image = image[h + 150:, :w]
+for fileName in os.listdir('Passports'):
+    image = face_recognition.load_image_file(os.path.join('Passports', fileName))
+    
+    image = numpy.asarray(Image.fromarray(image).resize((962, 1343)))
+    w, h, r = image.shape
+    h = h // 2
+    image = image[h + 150:, :w]
 ```
 ### Extract face from passport
 ![](https://i.ibb.co/QPgkj0t/rotate.png)
