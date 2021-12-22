@@ -27,6 +27,19 @@ for fileName in os.listdir('Passports'):
     h = h // 2
     image = image[h + 150:, :w]
 ```
+### Enhance Image
+![](https://i.ibb.co/BgM0k7c/1.png)
+```python
+for fileName in os.listdir('Passports'):
+    image = face_recognition.load_image_file(os.path.join('Passports', fileName))
+
+    image_hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
+    h, s, v = image_hsv[:, :, 0], image_hsv[:, :, 1], image_hsv[:, :, 2]
+    clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
+    v = clahe.apply(v)
+    image_hsv = numpy.dstack((h, s, v))
+    image = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
+```
 ### Extract face from passport
 ![](https://i.ibb.co/QPgkj0t/rotate.png)
 ```python
