@@ -2,7 +2,7 @@
 This software has been used for automate the passport immigration process. Python programming language has been used in this software. This software first rotate the passport image into correct direction then enhance the image for better quality, crop ROI and then extract face from passport and save it into folder and then compare saved faces with passport faces file.
 
 ## Features
-### Rotate the passport file into correct direction
+### Rotate The Passport File Into Correct Direction
 ![](https://i.ibb.co/9qyFZPb/rotate.png)
 ```python
 for fileName in os.listdir('Passports'):
@@ -13,6 +13,8 @@ for fileName in os.listdir('Passports'):
 
         if len(face_location) == 0:
             image = numpy.asarray(Image.fromarray(image).rotate(90, expand=True))
+        else:
+            break
 ```
 ### Crop ROI
 ![](https://i.ibb.co/Qcmj1p8/rotate.png)
