@@ -71,8 +71,14 @@ for fn in os.listdir('Faces'):
 ### Installation Options
 #### Installing on Windows
   * First make sure you have already installed Python, Anaconda, and PyCharm
-  * Install Pillow module from pypi using `pip`
+  * Install Pillow, Numpy, OpenCV module from pypi using `pip`
 
 ```bash
 pip install Pillow
+```
+```bash
+pip install numpy
+```
+```bash
+pip install opencv-python
 ```
