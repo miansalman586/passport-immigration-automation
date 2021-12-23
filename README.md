@@ -60,7 +60,7 @@ for fn in os.listdir('Faces'):
     face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
     fe = face_recognition.face_encodings(face_image)[0]
 
-    matches = face_recognition.compare_faces([face_enc], fe, 0.4
+    matches = face_recognition.compare_faces([face_enc], fe, 0.4)
 
     if True in matches:
         print(fileName + ' matched with ' + fn)
