@@ -82,3 +82,13 @@ pip install numpy
 ```bash
 pip install opencv-python
 ```
+  * Install Face Recognition module from powershell using `conda`
+```bash
+conda create -n test_env python anaconda
+```
+```bash
+conda activate test_env
+```
+```bash
+conda install -c conda-forge face_recognition
+```
