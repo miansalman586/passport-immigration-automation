@@ -70,3 +70,4 @@ for fn in os.listdir('Faces'):
   * PyCharm
 ### Installation Options
 #### Installing on Windows
+First make sure you have already installed Python, Anaconda, and PyCharm
