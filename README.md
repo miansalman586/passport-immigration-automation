@@ -54,8 +54,6 @@ image = face_recognition.load_image_file(os.path.join('Cropped', 'Passport-001.j
 
 face_enc = face_recognition.face_encodings(image)[0]
 
-match_count = 0
-
 for fn in os.listdir('Faces'):
     face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
     fe = face_recognition.face_encodings(face_image)[0]
@@ -64,11 +62,4 @@ for fn in os.listdir('Faces'):
 
     if True in matches:
         print(fileName + ' matched with ' + fn)
-        match_count += 1
-
-if match_count == 0:
-    raise Exception('No matches found.')
-
-if match_count > 1:
-    raise Exception('Multiple matches found.')
 ```
