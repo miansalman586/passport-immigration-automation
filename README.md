@@ -62,5 +62,4 @@ for fn in os.listdir('Faces'):
 
     if True in matches:
         print('Matched with ' + fn)
-        break
 ```
