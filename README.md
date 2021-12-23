@@ -72,7 +72,3 @@ if match_count == 0:
 if match_count > 1:
     raise Exception('Multiple matches found.')
 ```
-## Installation
-### Requirements
-  * Python 3.3+ or Python 2.7
-  * Anaconda 3
