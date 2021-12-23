@@ -74,4 +74,4 @@ if match_count > 1:
 ```
 ## Installation
 ### Requirements
-    * Python 3.3+ or Python 2.7
+  * Python 3.3+ or Python 2.7
