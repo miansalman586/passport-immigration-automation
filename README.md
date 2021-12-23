@@ -67,6 +67,6 @@ for fn in os.listdir('Faces'):
 ### Requirements
   * Python
   * Anaconda
-  * Pycharm
+  * PyCharm
 ### Installation Options
 #### Installing on Windows
