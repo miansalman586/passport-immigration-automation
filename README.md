@@ -61,5 +61,5 @@ for fn in os.listdir('Faces'):
     matches = face_recognition.compare_faces([face_enc], fe, 0.4)
 
     if True in matches:
-        print(fileName + ' matched with ' + fn)
+        print('Matched with ' + fn)
 ```
