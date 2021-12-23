@@ -37,39 +37,38 @@ v = clahe.apply(v)
 image_hsv = numpy.dstack((h, s, v))
 image = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
 ```
-### Extract face from passport
+### Extract Face From Passport
 ![](https://i.ibb.co/QPgkj0t/rotate.png)
 ```python
-for fileName in os.listdir('Passports'):
-    image = face_recognition.load_image_file(os.path.join('Passports', fileName))
+image = face_recognition.load_image_file(os.path.join('Passports', 'Passport-001.jpg'))
 
-    face_location = face_recognition.face_locations(image)
+face_location = face_recognition.face_locations(image)
 
-    top, right, bottom, left = face_location[0]
-    face_image = image[top:bottom, left:right]
+top, right, bottom, left = face_location[0]
+face_image = image[top:bottom, left:right]
 ```
-### Compare passport face
+### Compare Passport Face
 ![](https://i.ibb.co/Y8TTmMm/rotate.png)
 ```python
-for fileName in os.listdir('Cropped'):
-    image = face_recognition.load_image_file(os.path.join('Cropped', fileName))
-    face_enc = face_recognition.face_encodings(image)[0]
+image = face_recognition.load_image_file(os.path.join('Cropped', 'Passport-001.jpg'))
 
-    match_count = 0
+face_enc = face_recognition.face_encodings(image)[0]
 
-    for fn in os.listdir('Faces'):
-        face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
-        fe = face_recognition.face_encodings(face_image)[0]
+match_count = 0
 
-        matches = face_recognition.compare_faces([face_enc], fe, face_match_tol)
+for fn in os.listdir('Faces'):
+    face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
+    fe = face_recognition.face_encodings(face_image)[0]
 
-        if True in matches:
-            print(fileName + ' matched with ' + fn)
-            match_count += 1
+    matches = face_recognition.compare_faces([face_enc], fe, face_match_tol)
 
-    if match_count == 0:
-        raise Exception('No matches found.')
+    if True in matches:
+        print(fileName + ' matched with ' + fn)
+        match_count += 1
 
-    if match_count > 1:
-        raise Exception('Multiple matches found.')
+if match_count == 0:
+    raise Exception('No matches found.')
+
+if match_count > 1:
+    raise Exception('Multiple matches found.')
 ```
