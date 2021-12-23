@@ -63,3 +63,10 @@ for fn in os.listdir('Faces'):
     if True in matches:
         print('Matched with ' + fn)
 ```
+## Installation
+### Requirements
+  * Python
+  * Anaconda
+  * Pycharm
+### Installation Options
+#### Installing on Windows
