@@ -92,3 +92,4 @@ conda activate test_env
 ```bash
 conda install -c conda-forge face_recognition
 ```
+  * Setting Up Conda Environment in PyCharm
