@@ -94,13 +94,10 @@ conda install -c conda-forge face_recognition
 ```
   * Setting Up Conda Environment in PyCharm
     *   Open pycharm and open cloned project and then in the top left menu click on "File" and then go to "Settings" 
-
-![](https://i.ibb.co/Lt9GPyd/1.jpg)
+        ![](https://i.ibb.co/Lt9GPyd/1.jpg)
 
     *   On the left side of menu expand project and then go to "Python Interpreter" and then on top right side click on "Add"
-
-![](https://i.ibb.co/cx5L7GD/3.jpg)
+        ![](https://i.ibb.co/cx5L7GD/3.jpg)
 
     *   On the left side menu click on "Conda Environmen" and then click on existing environment and then add "Interpreter" location
-
-![](https://i.ibb.co/ftsQTXK/2.jpg)
+        ![](https://i.ibb.co/ftsQTXK/2.jpg)
