@@ -93,3 +93,6 @@ conda activate test_env
 conda install -c conda-forge face_recognition
 ```
   * Setting Up Conda Environment in PyCharm
+    *   Open pycharm and open cloned project and then in the top left menu click on "File" and then go to "Settings" 
+    *   On the left side of menu expand project and then go to "Python Interpreter" and then on top right side click on "Add"
+    *   On the left side menu click on "Conda Environmen" and then click on existing environment and then add interpreter location
