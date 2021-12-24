@@ -97,5 +97,5 @@ conda install -c conda-forge face_recognition
 ![](https://i.ibb.co/Lt9GPyd/1.jpg)
     *   On the left side of menu expand project and then go to "Python Interpreter" and then on top right side click on "Add"
 ![](https://i.ibb.co/cx5L7GD/3.jpg)
-    *   On the left side menu click on "Conda Environmen" and then click on existing environment and then add interpreter location
+    *   On the left side menu click on "Conda Environmen" and then click on existing environment and then add "Interpreter" location
 ![](https://i.ibb.co/ftsQTXK/2.jpg)
