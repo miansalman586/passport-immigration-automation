@@ -63,6 +63,7 @@ for fn in os.listdir('Faces'):
     if True in matches:
         print('Matched with ' + fn)
 ```
+### Verify Live Cemera Photo
 ## Installation
 ### Requirements
   * Python
