@@ -25,7 +25,6 @@ for fileName in os.listdir('Passports'):
             v = clahe.apply(v)
             image_hsv = numpy.dstack((h, s, v))
             image = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
-            Image.fromarray(image).save(os.path.join('Cropped', fileName))
             # Enhance Image
 
             # Find Face
@@ -68,44 +67,5 @@ for fileName in os.listdir('Cropped'):
     if match_count > 1:
         raise Exception('Multiple matches found.')
 # Compare Passport Face With System Saved Face
-
-# Compare Live Camera WIth Passport Face
-video_capture = cv2.VideoCapture(0)
-while True:
-    ret, frame = video_capture.read()
-
-    small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-    rgb_small_frame = small_frame[:, :, ::-1]
-
-    if cv2.waitKey(1) & 0xFF == ord('c'):
-        face_locations = face_recognition.face_locations(rgb_small_frame)
-        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)[0]
-
-        match_count = 0
-
-        for fn in os.listdir('Faces'):
-            face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
-            fe = face_recognition.face_encodings(face_image)[0]
-
-            matches = face_recognition.compare_faces([face_encodings], fe, face_match_tol)
-
-            if True in matches:
-                print('Matched with ' + fn)
-                match_count += 1
-
-        if match_count == 0:
-            raise Exception('No matches found.')
-
-        if match_count > 1:
-            raise Exception('Multiple matches found.')
-
-    cv2.imshow('Video', frame)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-video_capture.release()
-cv2.destroyAllWindows()
-# Compare Live Camera WIth Passport Face
 
 
