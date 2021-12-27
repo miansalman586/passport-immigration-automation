@@ -54,21 +54,51 @@ image = face_recognition.load_image_file(os.path.join('Cropped', 'Passport-001.j
 
 face_enc = face_recognition.face_encodings(image)[0]
 
-match_count = 0
-
 for fn in os.listdir('Faces'):
     face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
     fe = face_recognition.face_encodings(face_image)[0]
 
-    matches = face_recognition.compare_faces([face_enc], fe, face_match_tol)
+    matches = face_recognition.compare_faces([face_enc], fe, 0.4)
 
     if True in matches:
-        print(fileName + ' matched with ' + fn)
-        match_count += 1
-
-if match_count == 0:
-    raise Exception('No matches found.')
-
-if match_count > 1:
-    raise Exception('Multiple matches found.')
+        print('Matched with ' + fn)
 ```
+## Installation
+### Requirements
+  * Python
+  * Anaconda
+  * PyCharm
+### Installation Options
+#### Installing on Windows
+  * First make sure you have already installed Python, Anaconda, and PyCharm
+  * Install Pillow, Numpy, OpenCV module from pypi using `pip`
+
+```bash
+pip install Pillow
+```
+```bash
+pip install numpy
+```
+```bash
+pip install opencv-python
+```
+  * Install Face Recognition module from powershell using `conda`
+```bash
+conda create -n test_env python anaconda
+```
+```bash
+conda activate test_env
+```
+```bash
+conda install -c conda-forge face_recognition
+```
+  * Setting Up Conda Environment in PyCharm
+    *   Open pycharm and open cloned project and then in the top left menu click on **File** and then go to **Settings** 
+    
+        ![](https://i.ibb.co/Lt9GPyd/1.jpg)
+    *   On the left side of menu expand project and then go to **Python Interpreter** and then on top right side click on **Add**
+    
+        ![](https://i.ibb.co/cx5L7GD/3.jpg)
+    *   On the left side menu click on **Conda Environmen** and then click on existing environment and then add **Interpreter** location and click ok
+    
+        ![](https://i.ibb.co/ftsQTXK/2.jpg)
