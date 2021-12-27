@@ -82,7 +82,7 @@ while True:
             face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
             fe = face_recognition.face_encodings(face_image)[0]
 
-            matches = face_recognition.compare_faces([face_encodings], fe, face_match_tol)
+            matches = face_recognition.compare_faces([face_encodings], fe, 0.4)
 
             if True in matches:
                 print('Matched with ' + fn)
