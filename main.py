@@ -55,7 +55,6 @@ for fileName in os.listdir('Cropped'):
     for fn in os.listdir('Faces'):
         face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
         fe = face_recognition.face_encodings(face_image)[0]
-        print(len(fe))
 
         matches = face_recognition.compare_faces([face_enc], fe, face_match_tol)
 
