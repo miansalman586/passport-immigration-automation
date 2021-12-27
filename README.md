@@ -1,5 +1,5 @@
 # Passport Immigration Automation
-This software has been used for automate the passport immigration process. Python programming language has been used in this software. This software first rotate the passport image into correct direction then enhance the image for better quality, crop ROI and then extract face from passport and save it into folder and then compare saved faces with passport faces file.
+This software has been used for automate the passport immigration process. Python programming language has been used in this software. This software first rotate the passport image into correct direction then enhance the image for better quality, crop ROI and then extract face from passport and save it into folder and then compare saved faces with passport faces file and verify live cemera photo with passport extracted faces.
 
 ## Features
 ### Rotate The Passport File Into Correct Direction
@@ -62,6 +62,45 @@ for fn in os.listdir('Faces'):
 
     if True in matches:
         print('Matched with ' + fn)
+```
+### Verify Live Cemera Photo
+```python
+video_capture = cv2.VideoCapture(0)
+while True:
+    ret, frame = video_capture.read()
+
+    small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+    rgb_small_frame = small_frame[:, :, ::-1]
+
+    if cv2.waitKey(1) & 0xFF == ord('c'):
+        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)[0]
+
+        match_count = 0
+
+        for fn in os.listdir('Faces'):
+            face_image = face_recognition.load_image_file(os.path.join('Faces', fn))
+            fe = face_recognition.face_encodings(face_image)[0]
+
+            matches = face_recognition.compare_faces([face_encodings], fe, 0.4)
+
+            if True in matches:
+                print('Matched with ' + fn)
+                match_count += 1
+
+        if match_count == 0:
+            raise Exception('No matches found.')
+
+        if match_count > 1:
+            raise Exception('Multiple matches found.')
+
+    cv2.imshow('Video', frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+video_capture.release()
+cv2.destroyAllWindows()
 ```
 ## Installation
 ### Requirements
