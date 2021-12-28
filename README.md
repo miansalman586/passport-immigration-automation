@@ -19,26 +19,26 @@ for fileName in os.listdir('Passports'):
 ### Crop ROI
 ![](https://i.ibb.co/Qcmj1p8/rotate.png)
 ```python
- image = numpy.asarray(Image.fromarray(image).resize((962, 1343)))
- w, h, r = image.shape
- h = h // 2
- image = image[h + 150:, :w]
+image = numpy.asarray(Image.fromarray(image).resize((962, 1343)))
+w, h, r = image.shape
+h = h // 2
+image = image[h + 150:, :w]
 ```
 ### Enhance Image
 ![](https://i.ibb.co/hXW3SYh/a.png)
 ```python
- image_hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
- h, s, v = image_hsv[:, :, 0], image_hsv[:, :, 1], image_hsv[:, :, 2]
- clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
- v = clahe.apply(v)
- image_hsv = numpy.dstack((h, s, v))
- image = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
+image_hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
+h, s, v = image_hsv[:, :, 0], image_hsv[:, :, 1], image_hsv[:, :, 2]
+clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
+v = clahe.apply(v)
+image_hsv = numpy.dstack((h, s, v))
+image = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
 ```
 ### Extract Face From Passport
 ![](https://i.ibb.co/QPgkj0t/rotate.png)
 ```python
- top, right, bottom, left = face_location[0]
- face_image = image[top:bottom, left:right]
+top, right, bottom, left = face_location[0]
+face_image = image[top:bottom, left:right]
 ```
 ### Compare Passport Face
 ![](https://i.ibb.co/Y8TTmMm/rotate.png)
