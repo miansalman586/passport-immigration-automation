@@ -13,8 +13,6 @@ for fileName in os.listdir('Passports'):
 
         if len(face_location) == 0:
             image = numpy.asarray(Image.fromarray(image).rotate(90, expand=True))
-        else:
-            break
 ```
 ### Crop ROI
 ![](https://i.ibb.co/Qcmj1p8/rotate.png)
